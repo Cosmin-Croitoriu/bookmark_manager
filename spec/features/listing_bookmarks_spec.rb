@@ -14,14 +14,14 @@ feature 'Viewing bookmarks' do
     # connection.exec("INSERT INTO bookmarks VALUES(2, 'https://en-gb.facebook.com/');")
     # connection.exec("INSERT INTO bookmarks VALUES(3, 'https://www.google.co.uk/');")
 
-    Bookmark.create(url: "https://makers.tech/")
-    Bookmark.create(url: "https://en-gb.facebook.com/")
-    Bookmark.create(url: "https://www.google.co.uk/")
+    Bookmark.create(url: 'http://www.makersacademy.com', title: 'Makers Academy')
+    Bookmark.create(url: 'http://www.destroyallsoftware.com', title: 'Destroy All Software')
+    Bookmark.create(url: 'http://www.google.com', title: 'Google')
 
     visit('/bookmarks')
 
-    expect(page).to have_content("https://makers.tech/")
-    expect(page).to have_content("https://en-gb.facebook.com/")
-    expect(page).to have_content("https://www.google.co.uk/")
+    expect(page).to have_link('Makers Academy', href: 'http://www.makersacademy.com')
+    expect(page).to have_link('Destroy All Software',  href: 'http://www.destroyallsoftware.com')
+    expect(page).to have_link('Google', href: 'http://www.google.com')
   end
 end
