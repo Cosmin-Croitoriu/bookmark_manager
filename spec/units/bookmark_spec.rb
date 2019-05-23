@@ -1,21 +1,21 @@
-require 'bookmark'
+# require 'bookmark'
 
-describe Bookmark do
-  describe '.all' do
-    it 'returns all bookmarks' do
-      connection = PG.connect(dbname: 'bookmark_manager_test')
+# describe Bookmark do
+#   describe '.all' do
+#     it 'returns all bookmarks' do
+#       connection = PG.connect(dbname: 'bookmark_manager_test')
 
-      connection.exec("INSERT INTO bookmarks (url) VALUES ('https://makers.tech/');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES('https://en-gb.facebook.com/');")
-      connection.exec("INSERT INTO bookmarks (url) VALUES('https://www.google.co.uk/');")
+#       connection.exec("INSERT INTO bookmarks (url) VALUES ('https://makers.tech/');")
+#       connection.exec("INSERT INTO bookmarks (url) VALUES('https://en-gb.facebook.com/');")
+#       connection.exec("INSERT INTO bookmarks (url) VALUES('https://www.google.co.uk/');")
 
-      bookmarks = Bookmark.all
+#       bookmarks = Bookmark.all
 
-      expect(bookmarks).to eq([
-        "https://makers.tech/",
-        "https://en-gb.facebook.com/",
-        "https://www.google.co.uk/"
-        ])
-    end
-  end
-end
+#       expect(bookmarks).to eq([
+#         "https://makers.tech/",
+#         "https://en-gb.facebook.com/",
+#         "https://www.google.co.uk/"
+#         ])
+#     end
+#   end
+# end
